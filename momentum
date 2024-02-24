@@ -14,3 +14,19 @@ input double oversoldLevel = -100;    // Oversold level
 
 //--- indicator buffers
 double momentumBuffer[];
+
+//+------------------------------------------------------------------+
+//| Custom indicator initialization function                         |
+//+------------------------------------------------------------------+
+int OnInit()
+  {
+   // IndicatorBuffers setting
+   SetIndexBuffer(0, momentumBuffer);
+   SetIndexStyle(0, DRAW_LINE);
+   SetIndexLabel(0, "Momentum");
+
+   // Set the indicator name for MT5
+   IndicatorShortName("Custom Momentum");
+
+   return(INIT_SUCCEEDED);
+  }
