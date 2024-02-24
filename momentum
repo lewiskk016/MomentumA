@@ -1,0 +1,16 @@
+#property indicator_chart_window
+#property indicator_buffers 2
+#property indicator_color1 Lime        // Color for bullish momentum
+#property indicator_color2 Red         // Color for bearish momentum
+#property indicator_width1 2          // Width for bullish momentum line
+#property indicator_width2 2          // Width for bearish momentum line
+
+//--- input parameters
+input int period = 14;
+input color bullishColor = Lime;      // Bullish momentum color
+input color bearishColor = Red;       // Bearish momentum color
+input double overboughtLevel = 100;   // Overbought level
+input double oversoldLevel = -100;    // Oversold level
+
+//--- indicator buffers
+double momentumBuffer[];
