@@ -73,3 +73,25 @@ int OnCalculate(const int rates_total,
 
    return(rates_total);
   }
+
+  //+------------------------------------------------------------------+
+//| Function to plot oversold and overbought levels                  |
+//+------------------------------------------------------------------+
+void PlotHorizontalLines()
+{
+   int totalBars = Bars - period;
+   ArraySetAsSeries(momentumBuffer, true);
+
+   double upperLevel = overboughtLevel;
+   double lowerLevel = oversoldLevel;
+
+   for(int i = 0; i < totalBars; i++)
+   {
+      SetIndexBuffer(1, i, upperLevel);
+      PlotIndexLine(1, i, bullishColor, StyleDots, false);
+
+      SetIndexBuffer(1, i, lowerLevel);
+      PlotIndexLine(1, i, bearishColor, StyleDots, false);
+   }
+}
+//+------------------------------------------------------------------+
