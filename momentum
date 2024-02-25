@@ -58,4 +58,18 @@ int OnCalculate(const int rates_total,
    else
       limit = rates_total - prev_calculated;
 
-      
+ // Calculate Momentum
+   for(int i = 0; i < limit; i++)
+   {
+      momentumBuffer[i] = close[i] - close[i + period];
+      if(momentumBuffer[i] > 0)
+         SetIndexBuffer(0, i, close[i]);   // Bullish momentum
+      else
+         SetIndexBuffer(0, i, EMPTY_VALUE); // No value for bearish momentum
+   }
+
+   // Plot oversold and overbought levels
+   PlotHorizontalLines();
+
+   return(rates_total);
+  }
