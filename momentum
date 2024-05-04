@@ -16,7 +16,7 @@ input double oversoldLevel = -100;    // Oversold level
 double momentumBuffer[];
 
 //+------------------------------------------------------------------+
-//| Custom indicator initialization function                         |
+//| Custom  indicator initialization function                         |
 //+------------------------------------------------------------------+
 int OnInit()
   {
